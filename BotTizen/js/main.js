@@ -32,6 +32,7 @@ window.onload = function () {
 
   function checkChanges() {
     try {
+
       tizen.systeminfo.getPropertyValue("WIFI_NETWORK", function (wifi) {
         const currentURL = wifi.ipAddress;
         if (currentURL !== window.config.serverURL) {
@@ -42,12 +43,20 @@ window.onload = function () {
       tizen.systeminfo.getPropertyValue("SYSTEM", function (sys) {
         if (sys.timezone !== window.config.timezone) {
           reportChange("timezone", sys.timezone);
+  
+          try {
+            tizen.time.setTimezone(window.config.timezone);
+            console.log("Zona horaria restaurada a:", window.config.timezone);
+          } catch (e) {
+            console.log("Error al cambiar zona horaria:", e.message);
+          }
         }
       });
     } catch (e) {
       console.log("Error verificando config:", e.message);
     }
   }
+  
 
   fetchConfig().then((conf) => {
     window.config = conf;
