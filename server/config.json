@@ -1,0 +1,9 @@
+{
+  "devices": ["TV123456", "QBC-LOBBY"],
+  "expectedConfig": {
+    "serverURL": "http://nocus.samsungcms.com",
+    "tlsPort": 7002,
+    "useTLs": true,
+    "timezone": "America/Mexico_City"
+  }
+}

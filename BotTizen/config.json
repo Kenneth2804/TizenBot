@@ -1,0 +1,7 @@
+{
+  "serverURL": "http://nocus.samsungcms.com",
+  "tlsPort": 7002,
+  "useTLs": true,
+  "timezone": "America/Mexico_City",
+  "reportURL": "https://tubot.com/report"
+}
